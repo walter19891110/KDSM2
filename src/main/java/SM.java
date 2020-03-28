@@ -477,7 +477,7 @@ public class SM {
         String reg="-----*";
         Pattern p= Pattern.compile(reg);
         Files.lines(Paths.get(pemFile)).forEach(line -> {
-            //不要第一行和最后一行
+            //不要第一行和最后一行,即不要证书中BEGIN和END行
             if(!p.matcher(line).find()){
                 list.add(line);
             }
@@ -499,8 +499,8 @@ public class SM {
 //            getX509PEMCertFromP12(p12file, pwd.toCharArray(), certfile);
 //            X509Certificate sm2Cert = getX509Certificate("/Users/walter/Downloads/SM2.cer");
 
-//            String pemStr = getPEMStr("key/C_SM2_PriKey.cer");
-//            println(pemStr);
+            String pemStr = getPEMStr("key/C_SM2_PriKey.pem");
+            println(pemStr);
             test_java_c();
             //测试证书自验
 //            X509Certificate CACert = buildCACert();
